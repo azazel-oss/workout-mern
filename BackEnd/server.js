@@ -6,7 +6,13 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+const workoutRouter = require("./routes/workouts");
+
 app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/api/workouts", workoutRouter);
 
 app.get("/", (req, res) => {
   res.json({
