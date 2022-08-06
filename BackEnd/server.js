@@ -18,6 +18,7 @@ db.once("open", () => console.log("Connection established with the database"));
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 const workoutRouter = require("./routes/workouts");
+const userRouter = require("./routes/user");
 
 app.use(morgan("dev"));
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/api/workouts", workoutRouter);
+app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
   res.json({
