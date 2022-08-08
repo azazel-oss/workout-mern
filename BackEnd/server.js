@@ -3,8 +3,8 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 8080;
 
@@ -23,7 +23,6 @@ const userRouter = require("./routes/user");
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
 
 app.use("/api/workouts", workoutRouter);
 app.use("/api/user", userRouter);
