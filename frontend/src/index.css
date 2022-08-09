@@ -120,6 +120,7 @@ nav button {
   border-radius: 4px;
   font-family: "Poppins";
   cursor: pointer;
+  margin-left: 10px;
   font-size: 1em;
 }
 
